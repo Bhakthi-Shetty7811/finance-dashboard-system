@@ -19,6 +19,22 @@ app.use(helmet());
 app.use(cors());
 app.use(express.json());
 
+app.get('/', (req, res) => {
+  res.json({
+    success: true,
+    message: 'Finance Dashboard API',
+    version: 'v1.0.0',
+    docs: 'https://github.com/Bhakthi-Shetty7811/finance-dashboard-system#api-reference',
+    health: '/health',
+    endpoints: {
+      auth:      '/api/auth',
+      users:     '/api/users',
+      records:   '/api/records',
+      dashboard: '/api/dashboard',
+    }
+  });
+});
+
 app.use('/api/', rateLimit({
   windowMs: 15 * 60 * 1000,
   max: 100,
