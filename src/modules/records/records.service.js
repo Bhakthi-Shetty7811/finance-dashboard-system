@@ -5,7 +5,7 @@ const buildFilterQuery = (filters, userId, isAdmin) => {
   const params = [];
   let i = 1;
 
-  // Non-admins only see their own records
+  // Non admins only see their own records
   if (!isAdmin) {
     conditions.push(`r.user_id = $${i++}`);
     params.push(userId);

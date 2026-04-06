@@ -9,7 +9,7 @@ router.use(authenticate);
 router.get('/',    validate(schemas.listRecords, 'query'), ctrl.list);
 router.get('/:id', ctrl.getOne);
 
-// Analyst + Admin can create
+// Analyst and Admin can create
 router.post('/', authorize('analyst','admin'), validate(schemas.createRecord), ctrl.create);
 
 // Only Admin can update and delete

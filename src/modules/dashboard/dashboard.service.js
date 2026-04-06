@@ -1,6 +1,6 @@
 const { query } = require('../../config/db');
 
-// Helper — scope records to user unless admin
+// Scope records to user unless admin
 const scopeClause = (user, startIndex = 1) => {
   if (user.role === 'admin') return { clause: '', params: [], next: startIndex };
   return { clause: `AND user_id = $${startIndex}`, params: [user.id], next: startIndex + 1 };
