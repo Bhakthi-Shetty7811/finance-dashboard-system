@@ -51,6 +51,27 @@ npm run dev
 | GET | /api/dashboard/trends | Yes | Any | Monthly trends |
 | GET | /api/dashboard/recent | Yes | Any | Recent activity |
 
+## API Testing
+Import `finance-dashboard-system.postman_collection.json` into Postman to test all endpoints.
+
+## Filtering & Pagination
+
+Records support query parameters:
+
+| Parameter | Type | Description |
+|---|---|---|
+| page | number | Page number (default: 1) |
+| limit | number | Results per page (default: 20, max: 100) |
+| type | string | income or expense |
+| category | string | Filter by category (partial match) |
+| start_date | date | YYYY-MM-DD |
+| end_date | date | YYYY-MM-DD |
+| sort_by | string | date, amount, or created_at |
+| sort_order | string | asc or desc |
+| search | string | Search notes and category |
+
+Example: `GET /api/records?type=expense&category=rent&page=1&limit=10`
+
 ## Technical Decisions and Trade-offs
 
 **PostgreSQL over MongoDB** - Financial data is relational by nature (users own records, foreign key constraints enforce integrity). Aggregation queries like monthly trends and category totals are far cleaner in SQL than MongoDB pipelines.
