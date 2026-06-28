@@ -69,7 +69,7 @@ const Dashboard = () => {
       <div style={{ padding: '32px', maxWidth: '1100px' }}>
         <div style={{ marginBottom: '28px' }}>
           <h1 style={{ fontSize: '22px', fontWeight: '700', color: '#f1f5f9' }}>Dashboard</h1>
-          <p style={{ fontSize: '14px', color: '#64748b', marginTop: '4px' }}>Financial overview across all records</p>
+          <p style={{ fontSize: '14px', color: '#64748b', marginTop: '4px' }}>All figures are system-wide across all users</p>
         </div>
 
         {/* Stat Cards */}
@@ -82,7 +82,7 @@ const Dashboard = () => {
 
         {/* Chart */}
         <div style={s.card}>
-          <h3 style={s.cardTitle}>Monthly Trends <span style={s.cardSub}>Last 6 months</span></h3>
+          <h3 style={s.cardTitle}>Monthly Trends <span style={s.cardSub}>All time, grouped by month</span></h3>
           {trends.length === 0
             ? <p style={s.empty}>No trend data available</p>
             : <ResponsiveContainer width="100%" height={260}>

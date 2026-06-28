@@ -36,14 +36,10 @@ const Login = () => {
   return (
     <div style={s.page}>
       <div style={s.left}>
-        <div style={s.brand}>
-          <span style={s.brandIcon}>💰</span>
-          <h1 style={s.brandName}>FinanceOS</h1>
-        </div>
         <h2 style={s.heading}>Role-based finance<br />management system</h2>
         <p style={s.sub}>Built with Node.js, Express & PostgreSQL</p>
         <div style={s.features}>
-          {['Admin, Analyst, Viewer roles','Full CRUD with soft delete','Dashboard analytics & trends','JWT authentication'].map(f => (
+          {['Three access levels: Admin, Analyst, Viewer', 'Full CRUD with audit-safe soft delete', 'Live analytics: trends, categories, net balance', 'JWT auth with per request access control'].map(f => (
             <div key={f} style={s.feature}>
               <span style={s.check}>✓</span> {f}
             </div>
@@ -54,7 +50,7 @@ const Login = () => {
       <div style={s.right}>
         <div style={s.card}>
           <h2 style={s.cardTitle}>Sign in</h2>
-          <p style={s.cardSub}>Use a demo account or your credentials</p>
+          <p style={s.cardSub}>Try a role instantly</p>
 
           <div style={s.demoRow}>
             {demos.map(d => (
@@ -65,7 +61,7 @@ const Login = () => {
             ))}
           </div>
 
-          <div style={s.divider}><span style={s.dividerText}>or enter manually</span></div>
+          <div style={s.divider}><span style={s.dividerText}>or sign in with your account</span></div>
 
           <form onSubmit={handleSubmit}>
             <div style={s.field}>

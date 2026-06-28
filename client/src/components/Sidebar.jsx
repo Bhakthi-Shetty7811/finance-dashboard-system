@@ -37,8 +37,7 @@ const Sidebar = () => {
   return (
     <aside style={s.sidebar}>
       <div style={s.logo}>
-        <span style={s.logoIcon}>💰</span>
-        <span style={s.logoText}>FinanceOS</span>
+         <span style={s.logoText}>Role-based Finance Management System</span>
       </div>
 
       <nav style={s.nav}>
@@ -67,7 +66,7 @@ const Sidebar = () => {
           </div>
         </div>
         <button onClick={handleLogout} style={s.logoutBtn}>
-          ⎋ Logout
+          → Sign out
         </button>
       </div>
     </aside>

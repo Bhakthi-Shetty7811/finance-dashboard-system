@@ -35,7 +35,7 @@ const getMonthlyTrends = async (user) => {
       COALESCE(SUM(CASE WHEN type='expense' THEN amount ELSE 0 END), 0) AS expenses
     FROM financial_records
     WHERE is_deleted = FALSE
-      AND date >= NOW() - INTERVAL '6 months'
+      AND date >= NOW() - INTERVAL '48 months'
     GROUP BY month
     ORDER BY month ASC
   `);
