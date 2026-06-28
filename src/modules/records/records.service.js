@@ -5,11 +5,6 @@ const buildFilterQuery = (filters, userId, isAdmin) => {
   const params = [];
   let i = 1;
 
-  // Non admins only see their own records
-  if (!isAdmin) {
-    conditions.push(`r.user_id = $${i++}`);
-    params.push(userId);
-  }
 
   if (filters.type)       { conditions.push(`r.type = $${i++}`);            params.push(filters.type); }
   if (filters.category)   { conditions.push(`r.category ILIKE $${i++}`);   params.push(`%${filters.category}%`); }
@@ -60,11 +55,9 @@ const listRecords = async (filters, user) => {
 
 const getRecordById = async (id, user) => {
   const isAdmin = user.role === 'admin';
-  const sql = isAdmin
-    ? 'SELECT * FROM financial_records WHERE id=$1 AND is_deleted=FALSE'
-    : 'SELECT * FROM financial_records WHERE id=$1 AND user_id=$2 AND is_deleted=FALSE';
-  const params = isAdmin ? [id] : [id, user.id];
-  const { rows } = await query(sql, params);
+  // Everyone sees all records, admin can edit/delete
+  const sql = 'SELECT * FROM financial_records WHERE id=$1 AND is_deleted=FALSE';
+  const { rows } = await query(sql, [id]);
   return rows[0] || null;
 };
 
