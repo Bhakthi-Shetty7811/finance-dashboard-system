@@ -1,14 +1,15 @@
 # Finance Dashboard System
 
-A role-based financial records management API built with Node.js, Express, and PostgreSQL.
+A fullstack role-based finance management system built with Node.js, Express, PostgreSQL, and React.
 
-**Live:** https://finance-dashboard-system-i22e.onrender.com
+**API:** https://finance-dashboard-system-i22e.onrender.com 
+**Live:** https://finance-dashboard-system-taupe.vercel.app
 
 ## Quick Start
-```
+```bash
 git clone https://github.com/Bhakthi-Shetty7811/finance-dashboard-system
 cd finance-dashboard-system
-cp .env.example .env                      # fill in your DATABASE_URL and JWT_SECRET
+cp .env.example .env
 npm install
 node src/config/migrate.js
 node src/config/seed.js
@@ -71,6 +72,25 @@ Records support query parameters:
 | search | string | Search notes and category |
 
 Example: `GET /api/records?type=expense&category=rent&page=1&limit=10`
+
+## Frontend
+
+Built with React.js, deployed on Vercel. Connects to the backend API above.
+
+Features:
+- Role-aware UI — buttons and pages show/hide based on logged-in role
+- One-click demo login for Admin, Analyst, and Viewer
+- Dashboard with income/expense charts and category breakdown
+- Records table with filters, pagination, search, and inline edit/delete
+- User management panel (admin only)
+
+To run locally:
+```bash
+cd client
+cp .env.example .env
+npm install
+npm start
+```
 
 ## Technical Decisions and Trade-offs
 
